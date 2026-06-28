@@ -8,7 +8,7 @@ let clickSound = new Audio('sounds/click.mp3');
 let soundAn = true;
 let musikAn = true;
 
-document.getElementById('bgMusic').volume = 0.2;
+document.getElementById('bgMusic').volume = 0.5;
 
 if (highscore === null) {
     highscore = Infinity;
