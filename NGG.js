@@ -5,8 +5,10 @@ let highscore = localStorage.getItem('highscore');
 let winSound = new Audio('sounds/win.mp3');
 let highscoreSound = new Audio('sounds/highscore.mp3');
 let clickSound = new Audio('sounds/click.mp3');
+let soundAn = true;
+let musikAn = true;
 
-
+document.getElementById('bgMusic').volume = 0.2;
 
 if (highscore === null) {
     highscore = Infinity;
@@ -17,13 +19,37 @@ if (highscore === null) {
 document.getElementById('highscore').innerHTML =
     'Highscore: ' + (highscore === Infinity ? '-' : highscore);
 
+function toggleSound() {
+    soundAn = !soundAn;
+
+    if (soundAn) {
+        document.getElementById('sound').innerHTML = '🔊 Sound: An';
+    } else {
+        document.getElementById('sound').innerHTML = '🔇 Sound: Aus';
+    }
+}
+
+function toggleMusic() {
+    musikAn = !musikAn;
+
+    if (!musikAn) {
+        document.getElementById('music').innerHTML = '🎵 Musik: An';
+        document.getElementById('bgMusic').play();
+    } else {
+        document.getElementById('music').innerHTML = '🎵 Musik: Aus';
+        document.getElementById('bgMusic').pause();
+    }
+}
+    
 
 function handleClick() {
   window.location.reload();
 }
 
 function Easy() {
+    if (soundAn) {
     clickSound.play();
+    }
 
     RandomNumber = Math.floor(Math.random() * 50) + 1;
     document.body.style.backgroundImage = "none";
@@ -31,7 +57,9 @@ function Easy() {
 }
 
 function Medium() {
+    if (soundAn) {
     clickSound.play();
+    }
 
     RandomNumber = Math.floor(Math.random() * 100) + 1;
     document.body.style.backgroundImage = "none";
@@ -39,7 +67,9 @@ function Medium() {
 }
 
 function Hard() {
+    if (soundAn) {
     clickSound.play();
+    }
 
     RandomNumber = Math.floor(Math.random() * 500) + 1;
     document.body.style.backgroundImage = "none";
@@ -57,7 +87,9 @@ function GuessTheNumber() {
         Headline.innerHTML = 'Du hast Gewonnen!!!';
         const jsConfetti = new JSConfetti();
         jsConfetti.addConfetti();
+        if(soundAn) {
         winSound.play();
+        }
         if (Tries < highscore) {
     highscore = Tries;
     localStorage.setItem('highscore', highscore);
@@ -68,12 +100,16 @@ function GuessTheNumber() {
     }
 
     if(RandomNumber > Guess.value){
-        clickSound.play();
+    if (soundAn) {
+    clickSound.play();
+    }
         Headline.innerHTML = 'Zu Niedrig!!!';
     }
 
     if(RandomNumber < Guess.value){
-        clickSound.play();
+    if (soundAn) {
+    clickSound.play();
+    }
         Headline.innerHTML = 'Zu Hoch!!!';
     }
 

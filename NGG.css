@@ -8,6 +8,7 @@ header{
     background-color: #41377f;
     width: 100%;
     font-size: 26px;
+    animation: start 1s;
 }
 
 h1{
@@ -21,6 +22,7 @@ h1{
     padding: 10px;
     text-shadow: 0 0 15px #34d6ff;
     transition: 0.5s;
+        animation: start 1s;
     
 }
 
@@ -39,6 +41,7 @@ h2{
     padding: 10px;
     text-shadow: 0 0 15px #34d6ff;
     transition: 0.5s;
+        animation: start 1s;
 }
 
 h2:hover{
@@ -49,6 +52,7 @@ input{
     height: 30px;
     width: 170px;
     margin-right: 0;
+        animation: start 2s;
 
 }
 
@@ -58,12 +62,27 @@ button{
     font-size: 20px;
     background-color: rgb(169, 58, 58);
     margin-top: 10px;
-    transition: 0.3s
+    transition: 0.3s;
+        animation: start 2s;
 
 }
 
 button:hover{
     box-shadow: 0 0 15px rgb(228, 128, 128);
+}
+
+.Sound{
+    height: 35px;
+    width: 160px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 10px;
+    transition: 0.3s
+
+}
+
+.Sound:hover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.344);
 }
 
 .Raten{
@@ -72,6 +91,7 @@ button:hover{
     font-size: 20px;
     background-color: rgb(53, 196, 51);
     transition: 0.3s;
+        animation: start 2s;
 }
 
 .Raten:hover{
@@ -84,6 +104,7 @@ button:hover{
     font-size: 20px;
     background-color: rgb(53, 196, 51);
     transition: 0.3s;
+        animation: start 2s;
 }
 
 .Leicht:hover{
@@ -96,6 +117,7 @@ button:hover{
     font-size: 20px;
     background-color: #c4a733;
     transition: 0.3s;
+        animation: start 2s;
 }
 
 .Mittel:hover{
@@ -108,10 +130,23 @@ button:hover{
     font-size: 20px;
     background-color: #a93a3a;
     margin-top: 10px;
-    transition: 0.3s
+    transition: 0.3s;
+        animation: start 2s;
 
 }
 
 .Schwer:hover{
     box-shadow: 0 0 15px rgb(228, 128, 128);
+}
+
+@keyframes start {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="NGG.css" />
   </head>
   <body>
+    <audio id="bgMusic" src="sounds/background.mp3" loop></audio>
     <header>
       Number Guessing Game
+      <button id="sound" onclick="toggleSound();" class="Sound">🔊 Sound: An</button>
+      <button id="music" class="Sound" onclick="toggleMusic();">🎵 Musik: Aus</button>
     </header>
     <div class="container">
       <button class="Leicht" onclick="Easy()">Leicht (1-50)</button>
