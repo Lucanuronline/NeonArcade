@@ -7,6 +7,10 @@ let clickSound = new Audio('sounds/click.mp3');
 let soundAn = true;
 let musikAn = true;
 let difficulty = '';
+let winsEasy = Number(localStorage.getItem('winsEasy')) || 0;
+let winsMedium = Number(localStorage.getItem('winsMedium')) || 0;
+let winsHard = Number(localStorage.getItem('winsHard')) || 0;
+let rounds = Number(localStorage.getItem('rounds')) || 0;
 
 document.getElementById('bgMusic').volume = 0.2;
 
@@ -19,7 +23,17 @@ document.getElementById('highscoreMedium').innerHTML =
 document.getElementById('highscoreHard').innerHTML =
     'Schwer: ' + (localStorage.getItem('highscoreHard') || '-');
 
+    document.getElementById('rounds').innerHTML =
+    '🎮 Spiele: ' + rounds;
 
+    document.getElementById('winsEasy').innerHTML =
+    '🟢 Siege Leicht: ' + winsEasy;
+
+document.getElementById('winsMedium').innerHTML =
+    '🟡 Siege Mittel: ' + winsMedium;
+
+document.getElementById('winsHard').innerHTML =
+    '🔴 Siege Schwer: ' + winsHard;
 
 
 function toggleSound() {
@@ -50,6 +64,11 @@ function handleClick() {
 }
 
 function Easy() {
+    rounds++;
+localStorage.setItem('rounds', rounds);
+
+document.getElementById('rounds').innerHTML =
+    '🎮 Spiele: ' + rounds;
     difficulty = 'easy';
     if (soundAn) {
     clickSound.play();
@@ -61,6 +80,11 @@ function Easy() {
 }
 
 function Medium() {
+        rounds++;
+localStorage.setItem('rounds', rounds);
+
+document.getElementById('rounds').innerHTML =
+    '🎮 Spiele: ' + rounds;
     difficulty = 'medium';
     if (soundAn) {
     clickSound.play();
@@ -72,6 +96,11 @@ function Medium() {
 }
 
 function Hard() {
+        rounds++;
+localStorage.setItem('rounds', rounds);
+
+document.getElementById('rounds').innerHTML =
+    '🎮 Spiele: ' + rounds;
     difficulty = 'hard';
     if (soundAn) {
     clickSound.play();
@@ -119,6 +148,29 @@ if (difficulty === 'hard') {
         localStorage.setItem('highscoreHard', Tries);
     }
 }
+
+if (difficulty === 'easy') {
+    winsEasy++;
+    localStorage.setItem('winsEasy', winsEasy);
+}
+
+if (difficulty === 'medium') {
+    winsMedium++;
+    localStorage.setItem('winsMedium', winsMedium);
+}
+
+if (difficulty === 'hard') {
+    winsHard++;
+    localStorage.setItem('winsHard', winsHard);
+}
+
+document.getElementById('winsEasy').innerHTML =
+    '🟢 Siege Leicht: ' + winsEasy;
+document.getElementById('winsMedium').innerHTML =
+    '🟡 Siege Mittel: ' + winsMedium;
+document.getElementById('winsHard').innerHTML =
+    '🔴 Siege Schwer: ' + winsHard;
+
 }
     }
     

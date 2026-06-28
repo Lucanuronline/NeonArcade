@@ -17,11 +17,15 @@
       <button class="Leicht" onclick="Easy()">Leicht (1-50)</button>
       <button class="Mittel" onclick="Medium()">Mittel (1-100)</button>
       <button class="Schwer" onclick="Hard()">Schwer (1-500)</button>
-      <h1 id="Headline">Errate die Zahl!</h1>
-      <h2 id="TriesNumber">Versuche: 0</h2>
-      <h2 id="highscoreEasy">Leicht: -</h2>
-      <h2 id="highscoreMedium">Mittel: -</h2>
-      <h2 id="highscoreHard">Schwer: -</h2>
+      <div class="h1tries">
+        <h1 id="Headline">Errate die Zahl!</h1>
+        <h2 id="TriesNumber">Versuche: 0</h2>
+      </div>
+      <div class="difficulty">
+        <h2 id="highscoreEasy">Leicht: -</h2>
+        <h2 id="highscoreMedium">Mittel: -</h2>
+        <h2 id="highscoreHard">Schwer: -</h2>
+      </div>
       <form onsubmit="GuessTheNumber(); return false";>
         <input id="Guess" type="number" required placeholder="Bitte Zahl Erraten" />
         <button class="Raten">Raten!</button>
@@ -29,6 +33,11 @@
       <button id="btnRefresh" type="button">
         Neu Starten
       </button>
+      <h2>Statistiken:</h2>
+      <h2 id="rounds">🎮 Spiele: </h2>
+      <h2 id="winsEasy">🟢 Siege Leicht: 0</h2>
+      <h2 id="winsMedium">🟡 Siege Mittel: 0</h2>
+      <h2 id="winsHard">🔴 Siege Schwer: 0</h2>
     </div>
 
     <script src="NGG.js"></script>
