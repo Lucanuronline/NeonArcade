@@ -10,13 +10,30 @@ let musikAn = true;
 
 document.getElementById('bgMusic').volume = 0.5;
 
-const slider = document.getElementById('volume');
 const music = document.getElementById('bgMusic');
+const slider = document.getElementById('volume');
 
-slider.addEventListener('input', () => {
-    if (!music) return;
-    music.volume = slider.value;
-});
+// Unlock Audio einmal bei erster Interaktion
+function unlockAudio() {
+    if (music) {
+        music.play().then(() => {
+            music.pause();
+            music.currentTime = 0;
+        }).catch(() => {});
+    }
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('touchstart', unlockAudio);
+}
+
+document.addEventListener('click', unlockAudio);
+document.addEventListener('touchstart', unlockAudio);
+
+// Slider
+if (slider && music) {
+    slider.addEventListener('input', () => {
+        music.volume = slider.value;
+    });
+}
 
 if (highscore === null) {
     highscore = Infinity;
