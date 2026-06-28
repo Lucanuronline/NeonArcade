@@ -6,18 +6,21 @@ let highscoreSound = new Audio('sounds/highscore.mp3');
 let clickSound = new Audio('sounds/click.mp3');
 let soundAn = true;
 let musikAn = true;
+let difficulty = '';
 
 document.getElementById('bgMusic').volume = 0.2;
 
+document.getElementById('highscoreEasy').innerHTML =
+    'Leicht: ' + (localStorage.getItem('highscoreEasy') || '-');
 
-if (highscore === null) {
-    highscore = Infinity;
-} else {
-    highscore = Number(highscore);
-}
+document.getElementById('highscoreMedium').innerHTML =
+    'Mittel: ' + (localStorage.getItem('highscoreMedium') || '-');
 
-document.getElementById('highscore').innerHTML =
-    'Highscore: ' + (highscore === Infinity ? '-' : highscore);
+document.getElementById('highscoreHard').innerHTML =
+    'Schwer: ' + (localStorage.getItem('highscoreHard') || '-');
+
+
+
 
 function toggleSound() {
     soundAn = !soundAn;
@@ -47,6 +50,7 @@ function handleClick() {
 }
 
 function Easy() {
+    difficulty = 'easy';
     if (soundAn) {
     clickSound.play();
     }
@@ -57,6 +61,7 @@ function Easy() {
 }
 
 function Medium() {
+    difficulty = 'medium';
     if (soundAn) {
     clickSound.play();
     }
@@ -67,6 +72,7 @@ function Medium() {
 }
 
 function Hard() {
+    difficulty = 'hard';
     if (soundAn) {
     clickSound.play();
     }
@@ -89,15 +95,33 @@ function GuessTheNumber() {
         jsConfetti.addConfetti();
         if(soundAn) {
         winSound.play();
-        }
-        if (Tries < highscore) {
-    highscore = Tries;
-    localStorage.setItem('highscore', highscore);
-    document.getElementById('highscore').innerHTML =
-        'Highscore: ' + highscore;
-        highscoreSound.play();
+        
+if (difficulty === 'easy') {
+    let highscoreEasy = Number(localStorage.getItem('highscoreEasy'));
+
+    if (!highscoreEasy || Tries < highscoreEasy) {
+        localStorage.setItem('highscoreEasy', Tries);
+    }
+}
+
+if (difficulty === 'medium') {
+    let highscoreMedium = Number(localStorage.getItem('highscoreMedium'));
+
+    if (!highscoreMedium || Tries < highscoreMedium) {
+        localStorage.setItem('highscoreMedium', Tries);
+    }
+}
+
+if (difficulty === 'hard') {
+    let highscoreHard = Number(localStorage.getItem('highscoreHard'));
+
+    if (!highscoreHard || Tries < highscoreHard) {
+        localStorage.setItem('highscoreHard', Tries);
+    }
+}
 }
     }
+    
 
     if(RandomNumber > Guess.value){
     if (soundAn) {
@@ -113,8 +137,7 @@ function GuessTheNumber() {
         Headline.innerHTML = 'Zu Hoch!!!';
     }
 
-    Guess.value = '';
+
+
+    document.getElementById('Guess').value = '';
 }
-
-
-
