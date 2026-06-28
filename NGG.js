@@ -1,4 +1,3 @@
-let RandomNumber = Math.floor(Math.random() * 100) + 1;
 let Tries = 0;
 const refreshBtn = document.getElementById("btnRefresh");
 let highscore = localStorage.getItem('highscore');
