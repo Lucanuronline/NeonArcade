@@ -1,0 +1,27 @@
+body{
+    background-color: #5a4db2;
+    color: rgb(200, 195, 195);
+    font-size: 20px;
+}
+
+#feld {
+    width: 400px;
+    height: 300px;
+    background-color: red;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button{
+    height: 45px;
+    width: 180px;
+    font-size: 20px;
+    background-color: rgb(169, 58, 58);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+button:hover{
+    box-shadow: 0 0 15px rgb(228, 128, 128);
+}

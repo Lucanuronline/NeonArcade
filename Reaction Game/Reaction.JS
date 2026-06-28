@@ -1,0 +1,47 @@
+let startZeit;
+let kannKlicken = false;
+let highscore = Number(localStorage.getItem('highscore')) || Infinity;
+
+function startGame() {
+    kannKlicken = false;
+    document.getElementById('text').innerHTML = 'Warte...';
+    document.getElementById('feld').style.backgroundColor = 'red';
+    document.getElementById('highscore').innerHTML =
+    '🏆 Highscore: ' +
+    (highscore === Infinity ? '-' : highscore + ' ms');
+
+    let zufall = Math.random() * 3000 + 2000;
+
+    setTimeout(function () {
+        kannKlicken = true;
+        document.getElementById('feld').style.backgroundColor = 'green';
+        document.getElementById('text').innerHTML = 'Klick!';
+        startZeit = Date.now();
+    }, zufall);
+    
+}
+
+document.getElementById('feld').onclick = function () {
+
+    if (!kannKlicken) {
+        document.getElementById('zeit').innerHTML =
+            '❌ Zu früh geklickt!';
+        return;
+    }
+
+    let reaktion = Date.now() - startZeit;
+    document.getElementById('zeit').innerHTML =
+        'Deine Zeit: ' + reaktion + ' ms';
+};
+    if (document.getElementById('feld').style.backgroundColor === 'green') {
+        let reaktion = Date.now() - startZeit;
+        document.getElementById('zeit').innerHTML =
+            'Deine Zeit: ' + reaktion + ' ms';
+            if (reaktion < highscore) {
+    highscore = reaktion;
+    localStorage.setItem('highscore', highscore);
+
+    document.getElementById('highscore').innerHTML =
+        '🏆 Highscore: ' + highscore + ' ms';
+}
+    }
