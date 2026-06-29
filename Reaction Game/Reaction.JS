@@ -37,6 +37,10 @@ document.getElementById('feld').onclick = function () {
     if (reaktion < highscore) {
         highscore = reaktion;
         localStorage.setItem('highscore', highscore);
+        if (highscore < 50) {
+    localStorage.removeItem('highscore');
+    highscore = Infinity;
+}
 
         document.getElementById('highscore').innerHTML =
             '🏆 Highscore: ' + highscore + ' ms';
