@@ -149,6 +149,6 @@ ctx.fillRect(
 setInterval(function () {
     moveSnake();
     drawSnake();
-}, 150);
+}, 120);
 
 refreshBtn.addEventListener("click", handleClick);
