@@ -15,6 +15,8 @@ canvas {
     background: black;
 }
 
+
+
 h1{
     display: block;
     width: 150px;
@@ -79,4 +81,22 @@ button:hover{
     height: 70px;
     font-size: 30px;
     margin: 5px;
+}
+
+@media (max-width: 600px) {
+
+    h1{
+        font-size: 30px;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    #controls button {
+        width: 75px;
+        height: 75px;
+        font-size: 40px;
+    }
+
 }
