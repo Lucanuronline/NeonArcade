@@ -21,6 +21,10 @@ if (highscore === null) {
     highscore = 0;
 }
 
+if (!highscore || highscore > 250) {
+    localStorage.removeItem('highscore');
+    highscore = Infinity;
+}
 
 
 document.getElementById('highscore').innerHTML =
