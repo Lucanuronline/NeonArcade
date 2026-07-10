@@ -23,7 +23,7 @@ if (highscore === null) {
 
 if (!highscore || highscore > 250) {
     localStorage.removeItem('highscore');
-    highscore = Infinity;
+    highscore = 0;
 }
 
 
