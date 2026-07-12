@@ -5,6 +5,8 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
+
+    animation: start 2s;
 }
 
 html {
@@ -98,7 +100,14 @@ background:
     height: 400px;
     width: 430px;
 
+    transition: 0.3s;
 }
+
+.NGG:hover{
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
 .react{
 background:
     linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
@@ -109,6 +118,12 @@ background:
     height: 400px;
     width: 400px;
     
+    transition: 0.3s;
+}
+
+.react:hover{
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
 }
 
 .snake{
@@ -121,6 +136,12 @@ background:
     height: 400px;
     width: 400px;
     
+    transition: 0.3s;
+}
+
+.snake:hover{
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
 }
 
 .aim{
@@ -132,5 +153,24 @@ background:
     
     height: 400px;
     width: 400px;
+
+    transition: 0.3s;
     
+}
+
+.aim:hover{
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+@keyframes start {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
